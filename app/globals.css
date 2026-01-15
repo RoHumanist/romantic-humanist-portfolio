@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  transition: background-color 0.8s ease, color 0.8s ease;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+/* Theme Classes */
+.dark-theme {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.light-theme {
+  background-color: #F9FAFB;
+  color: #111827;
+}
+
+/* Section Center Layout */
+.section-center {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+}
+
+/* Bento Card Styles */
+.bento-card {
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* 카드별 색상 */
+.card-music {
+  background-color: #E2E2F0;
+  color: #4A4A6A;
+}
+
+.card-blog {
+  background-color: #E1E8E1;
+  color: #4A5A4A;
+}
+
+.card-philosophy {
+  background-color: #F0E2E2;
+  color: #6A4A4A;
+}
+
+.card-philosophy h4 {
+  color: #333333;
+}
+
+.card-philosophy p {
+  color: rgba(153, 27, 27, 0.5);
+}
+
+.card-kindness {
+  background-color: #E2EBF0;
+  color: #4A5A6A;
+}
+
+.card-fitness {
+  background-color: #E8E8E8;
+  color: #333333;
+}
+
+.card-principles {
+  background-color: #F0EEE2;
+  color: #5A5A4A;
+}
+
+.card-tmi {
+  background-color: #FFFFFF;
+  color: #111827;
+}
+
+/* Prose Styling for Modal Content */
+.prose p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.prose strong {
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.prose ul {
+  list-style: none;
+  padding: 0;
+}
+
+.prose li {
+  margin-bottom: 1rem;
+  padding-left: 0;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 100, 100, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 100, 100, 0.5);
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+  .section-center {
+    padding: 4rem 1.5rem;
+  }
+
+  .bento-card {
+    padding: 2rem !important;
+  }
+}
