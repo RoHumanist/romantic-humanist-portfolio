@@ -69,7 +69,7 @@ export const bentoCards: BentoCard[] = [
   {
     id: 'music',
     emoji: '🎤',
-    title: '부모도 포기한 음치가\n쇼미더머니 준비한 썰',
+    title: '부모님도 포기한 음치가\n쇼미더머니 준비한 썰',
     subtitle: '좋아하면 다 해봐야죠, 치열하게',
     colorClass: 'card-music',
     fullContent: {
@@ -286,8 +286,8 @@ export const transitionText = {
 
 // Plaza Header
 export const plazaHeader = {
-  main: 'Just do it,',
-  highlight: 'and connect the dots',
+  main: 'Just do it',
+  highlight: 'connect the dots',
 };
 
 // Outro Section
