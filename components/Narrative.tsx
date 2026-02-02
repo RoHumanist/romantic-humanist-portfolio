@@ -30,11 +30,10 @@ function NarrativeSection({ section, index }: NarrativeSectionProps) {
       >
         {index === 0 ? `"${section.title}"` : section.title}
       </h2>
-      <div className="text-base md:text-lg text-slate-300 leading-relaxed md:leading-loose space-y-5 md:space-y-6">
+      <div className="text-lg md:text-xl text-slate-300 leading-relaxed space-y-6 md:space-y-8">
         {section.paragraphs.map((paragraph, idx) => {
           // 특별한 스타일링이 필요한 문단 처리
-          const isFirstQuote = paragraph.includes('죽음이란 무엇일까');
-          const isSecondQuote = paragraph.includes('세상이란 뭘까');
+          const isBoldAnswer = paragraph.includes('"아무도 알 수가 없다"');
           const isHighlight = paragraph.includes('"사람"에');
 
           return (
@@ -42,18 +41,13 @@ function NarrativeSection({ section, index }: NarrativeSectionProps) {
               key={idx}
               className={`
                 ${
-                  isFirstQuote
-                    ? 'text-white font-bold text-lg md:text-xl py-3 md:py-4 tracking-tight italic'
-                    : ''
-                }
-                ${
-                  isSecondQuote
-                    ? 'text-white font-black text-2xl md:text-4xl py-4 md:py-6 tracking-tighter'
+                  isBoldAnswer
+                    ? 'text-white font-black text-2xl md:text-3xl py-6 md:py-8 tracking-tight'
                     : ''
                 }
                 ${
                   isHighlight
-                    ? 'text-white font-black text-xl md:text-3xl pt-6 md:pt-8 tracking-tight'
+                    ? 'text-white font-black text-xl md:text-2xl pt-6 md:pt-8 tracking-tight'
                     : ''
                 }
               `}

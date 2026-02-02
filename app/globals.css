@@ -132,10 +132,16 @@ body {
 /* 모바일 최적화 */
 @media (max-width: 768px) {
   .section-center {
-    padding: 4rem 1.5rem;
+    padding: 3rem 1.25rem;
+    min-height: 80vh; /* 모바일에서 섹션 높이 줄임 */
   }
 
-  .bento-card {
-    padding: 2rem !important;
+  body {
+    font-size: 16px; /* 모바일 기본 폰트 크기 */
+  }
+
+  /* 모바일에서 줄간격 늘림 */
+  p {
+    line-height: 1.7;
   }
 }

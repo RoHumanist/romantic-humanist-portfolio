@@ -29,7 +29,7 @@ export default function BentoGrid({ onCardClick }: BentoGridProps) {
           </h3>
         </motion.header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 auto-rows-auto">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8 auto-rows-auto">
           {bentoCards.map((card, index) => {
             const isFullWidth = card.id === 'tmi';
             const isPrinciples = card.id === 'principles';
@@ -37,8 +37,8 @@ export default function BentoGrid({ onCardClick }: BentoGridProps) {
             return (
               <motion.div
                 key={card.id}
-                className={`bento-card ${card.colorClass} p-8 md:p-12 rounded-[3.5rem] cursor-pointer ${
-                  isFullWidth ? 'md:col-span-2' : ''
+                className={`bento-card ${card.colorClass} p-4 md:p-12 rounded-[2rem] md:rounded-[3.5rem] cursor-pointer ${
+                  isFullWidth ? 'col-span-2' : ''
                 } ${card.id === 'tmi' ? 'border border-slate-200' : ''}`}
                 onClick={() => onCardClick(card.id)}
                 initial={{ opacity: 0, y: 30 }}
@@ -50,44 +50,44 @@ export default function BentoGrid({ onCardClick }: BentoGridProps) {
                 }}
               >
                 {isFullWidth ? (
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-8">
                     <div>
-                      <h4 className="text-4xl font-black tracking-tighter leading-none mb-4">
+                      <h4 className="text-xl md:text-4xl font-black tracking-tighter leading-none mb-2 md:mb-4">
                         {card.title}
                       </h4>
-                      <p className="text-slate-500 font-bold italic">
+                      <p className="text-slate-500 font-bold italic text-xs md:text-base">
                         {card.subtitle}
                       </p>
                     </div>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="bg-slate-100 px-4 py-2 rounded-full text-xs font-black text-slate-500">
+                    <div className="flex flex-wrap gap-1 md:gap-2">
+                      <span className="bg-slate-100 px-2 md:px-4 py-1 md:py-2 rounded-full text-[10px] md:text-xs font-black text-slate-500">
                         #아스날우승필수
                       </span>
-                      <span className="bg-slate-100 px-4 py-2 rounded-full text-xs font-black text-slate-500">
+                      <span className="bg-slate-100 px-2 md:px-4 py-1 md:py-2 rounded-full text-[10px] md:text-xs font-black text-slate-500">
                         #페퍼톤스
                       </span>
-                      <span className="bg-slate-100 px-4 py-2 rounded-full text-xs font-black text-slate-500">
+                      <span className="bg-slate-100 px-2 md:px-4 py-1 md:py-2 rounded-full text-[10px] md:text-xs font-black text-slate-500">
                         #VibeCoding
                       </span>
                     </div>
                   </div>
                 ) : isPrinciples ? (
                   <>
-                    <h4 className="text-xl font-black uppercase tracking-[0.4em] opacity-40 mb-6 leading-none">
+                    <h4 className="text-[10px] md:text-xl font-black uppercase tracking-[0.2em] md:tracking-[0.4em] opacity-40 mb-3 md:mb-6 leading-none">
                       {card.subtitle}
                     </h4>
-                    <p className="text-3xl font-black italic">{card.title}</p>
-                    <p className="opacity-70 mt-4 font-bold text-sm italic">
+                    <p className="text-base md:text-3xl font-black italic">{card.title}</p>
+                    <p className="opacity-70 mt-2 md:mt-4 font-bold text-[10px] md:text-sm italic">
                       제 안의 문장들
                     </p>
                   </>
                 ) : (
                   <>
-                    {card.emoji && <span className="text-5xl">{card.emoji}</span>}
-                    <h4 className="text-2xl font-black mt-10 leading-tight whitespace-pre-line">
+                    {card.emoji && <span className="text-3xl md:text-5xl">{card.emoji}</span>}
+                    <h4 className="text-sm md:text-2xl font-black mt-4 md:mt-10 leading-tight whitespace-pre-line">
                       {card.title}
                     </h4>
-                    <p className="opacity-70 mt-4 font-bold text-sm italic">
+                    <p className="opacity-70 mt-2 md:mt-4 font-bold text-[10px] md:text-sm italic">
                       {card.subtitle}
                     </p>
                   </>
