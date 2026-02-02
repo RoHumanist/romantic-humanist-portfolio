@@ -259,14 +259,20 @@ export const externalLinks: ExternalLink[] = [
 // Featured Articles (대표 글들)
 // 대표 글을 추가하려면 아래 배열에 객체를 추가하세요!
 export const featuredArticles: FeaturedArticle[] = [
-  // 예시:
-  // {
-  //   title: '글 제목',
-  //   description: '글에 대한 간단한 설명',
-  //   url: 'https://blog.naver.com/romantichumanist/...',
-  //   platform: 'naver',  // 'naver', 'brunch', 'medium', 'substack' 중 선택
-  //   thumbnail: '/images/article-1.jpg',
-  // },
+  {
+    title: '[테스트] 네이버 블로그 글 제목',
+    description: '여기에 글의 핵심 내용이나 후킹 포인트를 직접 작성해주세요. 2-3줄 정도가 적당합니다.',
+    url: 'https://blog.naver.com/romantichumanist/222729884277',
+    platform: 'naver',
+    // thumbnail: '/images/naver-article.jpg', // 이미지가 있으면 추가
+  },
+  {
+    title: '금융 자산으로 본 토큰 이코노믹스 - 서론',
+    description: '토큰 이코노믹스를 금융 자산의 관점에서 분석한 글입니다. 암호화폐와 전통 금융의 접점을 탐구합니다.',
+    url: 'https://medium.com/decipher-media/금융-자산으로-본-토큰-이코노믹스-서론-a23232394aeb',
+    platform: 'medium',
+    // thumbnail: '/images/tokenomics.jpg', // 이미지가 있으면 추가
+  },
 ];
 
 // Contact Info

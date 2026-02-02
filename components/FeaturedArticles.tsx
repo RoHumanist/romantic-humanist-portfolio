@@ -42,18 +42,18 @@ function ArticleCard({ article, index }: { article: FeaturedArticle; index: numb
             />
           </div>
         )}
-        <div className="p-8">
-          <div className="flex items-center gap-3 mb-4">
+        <div className="p-4 md:p-8">
+          <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
             <span
-              className={`${platformColors[article.platform]} text-white text-xs font-black px-3 py-1 rounded-full uppercase`}
+              className={`${platformColors[article.platform]} text-white text-[8px] md:text-xs font-black px-2 md:px-3 py-0.5 md:py-1 rounded-full uppercase`}
             >
               {article.platform}
             </span>
           </div>
-          <h3 className="text-2xl font-black mb-3 text-slate-900 group-hover:text-blue-600 transition-colors">
+          <h3 className="text-sm md:text-2xl font-black mb-2 md:mb-3 text-slate-900 group-hover:text-blue-600 transition-colors leading-tight">
             {article.title}
           </h3>
-          <p className="text-slate-600 leading-relaxed">{article.description}</p>
+          <p className="text-[10px] md:text-base text-slate-600 leading-relaxed line-clamp-3">{article.description}</p>
         </div>
       </div>
     </motion.a>
@@ -75,20 +75,20 @@ export default function FeaturedArticles() {
     <section ref={ref} className="py-32 px-6 light-theme">
       <div className="max-w-6xl mx-auto">
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-6xl font-black mb-6 tracking-tight">
+          <h2 className="text-3xl md:text-6xl font-black mb-4 md:mb-6 tracking-tight">
             Featured <span className="text-blue-600">Articles</span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <p className="text-sm md:text-xl text-slate-600 max-w-2xl mx-auto">
             제가 쓴 대표 글들을 읽어보세요
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8">
           {featuredArticles.map((article, index) => (
             <ArticleCard key={index} article={article} index={index} />
           ))}
