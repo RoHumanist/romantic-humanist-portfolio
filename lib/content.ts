@@ -260,18 +260,16 @@ export const externalLinks: ExternalLink[] = [
 // 대표 글을 추가하려면 아래 배열에 객체를 추가하세요!
 export const featuredArticles: FeaturedArticle[] = [
   {
-    title: '[테스트] 네이버 블로그 글 제목',
-    description: '여기에 글의 핵심 내용이나 후킹 포인트를 직접 작성해주세요. 2-3줄 정도가 적당합니다.',
+    title: '루나 폭락의 이유: 센티멘탈의 프로토콜화',
+    description: '루나는 원래부터 사기인 구조였을까? 그렇게 큰 프로덕트가 어떻게 한번에 망할 수 있었을까? 문돌이도 알아듣게 설명한 루나의 구조와 폭락 이유',
     url: 'https://blog.naver.com/romantichumanist/222729884277',
     platform: 'naver',
-    // thumbnail: '/images/naver-article.jpg', // 이미지가 있으면 추가
   },
   {
-    title: '금융 자산으로 본 토큰 이코노믹스 - 서론',
-    description: '토큰 이코노믹스를 금융 자산의 관점에서 분석한 글입니다. 암호화폐와 전통 금융의 접점을 탐구합니다.',
+    title: '금융 자산으로 본 토큰 이코노믹스 제언',
+    description: '코인은 가치가 없어서 사기라고 한다. 과연 그럴까? 앞으로도 코인은 계속 사기일까? 금융 자산의 가치 축적 모델로 살펴보자.',
     url: 'https://medium.com/decipher-media/금융-자산으로-본-토큰-이코노믹스-서론-a23232394aeb',
     platform: 'medium',
-    // thumbnail: '/images/tokenomics.jpg', // 이미지가 있으면 추가
   },
 ];
 
