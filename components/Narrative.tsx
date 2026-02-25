@@ -1,15 +1,16 @@
 'use client';
 
-import { narrativeSections } from '@/lib/content';
+import { useContent } from '@/lib/LanguageContext';
+import type { NarrativeSection } from '@/lib/content';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 interface NarrativeSectionProps {
-  section: typeof narrativeSections[0];
+  section: NarrativeSection;
   index: number;
 }
 
-function NarrativeSection({ section, index }: NarrativeSectionProps) {
+function NarrativeSectionItem({ section, index }: NarrativeSectionProps) {
   const [ref, inView] = useInView({
     threshold: 0.3,
     triggerOnce: false,
@@ -32,9 +33,9 @@ function NarrativeSection({ section, index }: NarrativeSectionProps) {
       </h2>
       <div className="text-lg md:text-xl text-slate-300 leading-relaxed space-y-6 md:space-y-8">
         {section.paragraphs.map((paragraph, idx) => {
-          // 특별한 스타일링이 필요한 문단 처리
-          const isBoldAnswer = paragraph.includes('"아무도 알 수가 없다"');
-          const isHighlight = paragraph.includes('"사람"에');
+          // Style based on section + paragraph index (language-agnostic)
+          const isBoldAnswer = section.id === 'death-and-universe' && idx === 2;
+          const isHighlight = section.id === 'romantic-humanism' && idx === 2;
 
           return (
             <p
@@ -62,10 +63,12 @@ function NarrativeSection({ section, index }: NarrativeSectionProps) {
 }
 
 export default function Narrative() {
+  const { narrativeSections } = useContent();
+
   return (
     <>
       {narrativeSections.map((section, index) => (
-        <NarrativeSection key={section.id} section={section} index={index} />
+        <NarrativeSectionItem key={section.id} section={section} index={index} />
       ))}
     </>
   );
