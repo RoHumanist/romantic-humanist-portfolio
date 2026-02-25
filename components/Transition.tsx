@@ -1,10 +1,12 @@
 'use client';
 
-import { transitionText } from '@/lib/content';
+import { useContent } from '@/lib/LanguageContext';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 export default function Transition() {
+  const { transitionText } = useContent();
+
   const [ref, inView] = useInView({
     threshold: 0.5,
     triggerOnce: false,

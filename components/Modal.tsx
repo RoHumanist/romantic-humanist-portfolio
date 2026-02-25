@@ -1,6 +1,6 @@
 'use client';
 
-import { bentoCards } from '@/lib/content';
+import { useContent } from '@/lib/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 
@@ -11,6 +11,7 @@ interface ModalProps {
 }
 
 export default function Modal({ isOpen, cardId, onClose }: ModalProps) {
+  const { bentoCards } = useContent();
   const card = bentoCards.find((c) => c.id === cardId);
 
   useEffect(() => {

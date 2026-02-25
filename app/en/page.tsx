@@ -10,13 +10,12 @@ import Modal from '@/components/Modal';
 import Outro from '@/components/Outro';
 import LanguageToggle from '@/components/LanguageToggle';
 import { LanguageProvider } from '@/lib/LanguageContext';
-import { koContent } from '@/lib/content';
+import { enContent } from '@/lib/content.en';
 
-export default function Home() {
+export default function EnglishHome() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
 
-  // 스크롤에 따른 테마 전환 (Plaza와 FeaturedArticles는 light-theme)
   useEffect(() => {
     const handleScroll = () => {
       const plaza = document.getElementById('plaza');
@@ -27,7 +26,6 @@ export default function Home() {
 
       const scrollPos = window.scrollY + window.innerHeight / 2;
 
-      // Plaza 시작부터 Outro 시작 전까지는 light-theme
       if (scrollPos > trigger.offsetTop && scrollPos < outro.offsetTop) {
         document.body.classList.remove('dark-theme');
         document.body.classList.add('light-theme');
@@ -38,7 +36,7 @@ export default function Home() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // 초기 실행
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -54,7 +52,7 @@ export default function Home() {
   };
 
   return (
-    <LanguageProvider content={koContent}>
+    <LanguageProvider content={enContent}>
       <LanguageToggle />
       <main className="dark-theme">
         <Hero />

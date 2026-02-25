@@ -1,6 +1,6 @@
 'use client';
 
-import { bentoCards, plazaHeader } from '@/lib/content';
+import { useContent } from '@/lib/LanguageContext';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -9,6 +9,8 @@ interface BentoGridProps {
 }
 
 export default function BentoGrid({ onCardClick }: BentoGridProps) {
+  const { bentoCards, plazaHeader } = useContent();
+
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: false,
@@ -59,17 +61,18 @@ export default function BentoGrid({ onCardClick }: BentoGridProps) {
                         {card.subtitle}
                       </p>
                     </div>
-                    <div className="flex flex-wrap gap-1 md:gap-2">
-                      <span className="bg-slate-100 px-2 md:px-4 py-1 md:py-2 rounded-full text-[10px] md:text-xs font-black text-slate-500">
-                        #아스날우승필수
-                      </span>
-                      <span className="bg-slate-100 px-2 md:px-4 py-1 md:py-2 rounded-full text-[10px] md:text-xs font-black text-slate-500">
-                        #페퍼톤스
-                      </span>
-                      <span className="bg-slate-100 px-2 md:px-4 py-1 md:py-2 rounded-full text-[10px] md:text-xs font-black text-slate-500">
-                        #VibeCoding
-                      </span>
-                    </div>
+                    {card.tags && (
+                      <div className="flex flex-wrap gap-1 md:gap-2">
+                        {card.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="bg-slate-100 px-2 md:px-4 py-1 md:py-2 rounded-full text-[10px] md:text-xs font-black text-slate-500"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ) : isPrinciples ? (
                   <>
@@ -78,7 +81,7 @@ export default function BentoGrid({ onCardClick }: BentoGridProps) {
                     </h4>
                     <p className="text-base md:text-3xl font-black italic">{card.title}</p>
                     <p className="opacity-70 mt-2 md:mt-4 font-bold text-[10px] md:text-sm italic">
-                      제 안의 문장들
+                      {card.secondaryLabel}
                     </p>
                   </>
                 ) : (

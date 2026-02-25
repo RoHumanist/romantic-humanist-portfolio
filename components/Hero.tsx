@@ -1,9 +1,11 @@
 'use client';
 
-import { heroData } from '@/lib/content';
+import { useContent } from '@/lib/LanguageContext';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
+  const { heroData } = useContent();
+
   return (
     <section className="section-center text-center dark-theme">
       <motion.div

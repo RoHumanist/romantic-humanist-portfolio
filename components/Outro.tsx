@@ -1,10 +1,12 @@
 'use client';
 
-import { outroData, externalLinks, contactEmail } from '@/lib/content';
+import { useContent } from '@/lib/LanguageContext';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 export default function Outro() {
+  const { outroData, externalLinks, contactEmail } = useContent();
+
   const [ref, inView] = useInView({
     threshold: 0.3,
     triggerOnce: false,

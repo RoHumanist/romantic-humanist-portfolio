@@ -1,6 +1,7 @@
 'use client';
 
-import { featuredArticles, type FeaturedArticle } from '@/lib/content';
+import { useContent } from '@/lib/LanguageContext';
+import type { FeaturedArticle } from '@/lib/content';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
@@ -61,12 +62,13 @@ function ArticleCard({ article, index }: { article: FeaturedArticle; index: numb
 }
 
 export default function FeaturedArticles() {
+  const { featuredArticles, featuredSectionLabel } = useContent();
+
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: false,
   });
 
-  // featuredArticles가 비어있으면 섹션을 렌더링하지 않음
   if (!featuredArticles || featuredArticles.length === 0) {
     return null;
   }
@@ -84,7 +86,7 @@ export default function FeaturedArticles() {
             Featured <span className="text-blue-600">Articles</span>
           </h2>
           <p className="text-sm md:text-xl text-slate-600 max-w-2xl mx-auto">
-            제가 쓴 대표 글들을 읽어보세요
+            {featuredSectionLabel}
           </p>
         </motion.div>
 
